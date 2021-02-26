@@ -1,2 +1,1 @@
 # TechWorld
-snfskocan visdfvndpi;
