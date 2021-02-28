@@ -20,7 +20,7 @@ app.get('/api/products',(req,res)=>
 
 app.get('/api/products/:id',(req,res)=>
 {
-    const product=products.find(p=>p._id == req.params._id)    //not working this api
+    const product=products.find(p=>p._id == req.params.id)    //not working this api
 
     res.json(product)
 
