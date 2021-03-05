@@ -14,8 +14,11 @@ export const listProducts =()=>async(dispatch)=>
         })
 
     }catch(error){
-        type:PRODUCT_LIST_FAIL
-        payload:error.response && error.response.data.message ?
-        error.response.data.message:error.message,
+        dispatch({
+            type:PRODUCT_LIST_FAIL,
+            payload:error.response && error.response.data.message ?
+            error.response.data.message:error.message,
+        })
+        
     }
 }
