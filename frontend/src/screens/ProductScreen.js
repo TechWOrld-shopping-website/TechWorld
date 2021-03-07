@@ -16,7 +16,7 @@ import {listProductDetails} from '../actions/productActions'
      console.log("product is",product)
 
     useEffect(()=>{
-      dispatch(listProductDetails(match.param.id))
+      dispatch(listProductDetails(match.params.id))
     },[dispatch,match])
    
  
