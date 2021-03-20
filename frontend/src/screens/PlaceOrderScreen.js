@@ -25,7 +25,7 @@ const PlaceOrderScreen = ({history}) => {
 
     cart.shippingPrice=cart.itemsPrice>6000 ? 0:100
 
-    cart.totalPrice=cart.itemsPrice+cart.shippingPrice
+    cart.totalPrice=parseInt(cart.itemsPrice)+parseInt(cart.shippingPrice)
 
     const orderCreate=useSelector(state=>state.orderCreate)
     const {order,success,error}=orderCreate

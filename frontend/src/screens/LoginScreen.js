@@ -21,6 +21,7 @@
     useEffect(() => {
         if(userInfo) {
             history.push(redirect)
+            window.location.reload()
         }
     },[history ,userInfo, redirect]
     )
