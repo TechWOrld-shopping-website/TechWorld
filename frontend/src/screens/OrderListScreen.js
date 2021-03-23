@@ -4,7 +4,7 @@ import { Table, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import{ listOrders } from '../actions/orderActions'
+import{ listOrders ,getOrderDetails} from '../actions/orderActions'
 
 const OrderListScreen = ( {history} ) => {
     const dispatch = useDispatch()
@@ -18,13 +18,16 @@ const OrderListScreen = ( {history} ) => {
 
     useEffect(() => {
         if(userInfo && userInfo.isAdmin === "true") {
+           
             dispatch(listOrders())
         } else {
             history.push('/login')
         }
    }, [dispatch, history, userInfo])
 
-    
+   const detailHandler=(order)=>{
+    dispatch(getOrderDetails(order))
+   }
 
     return (
         <>
@@ -84,7 +87,7 @@ const OrderListScreen = ( {history} ) => {
                                    
 
                                 <LinkContainer to={`/order/${order._id}`}>
-                                        <Button variant='light' className='btn-sm'>
+                                        <Button variant='light' className='btn-sm ' onClick={()=>this.detailHandler(order._id)}>
                                             Details
                                         </Button>
                                 </LinkContainer>

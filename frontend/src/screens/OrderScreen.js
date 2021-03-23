@@ -44,7 +44,7 @@ const orderId = match.params.id
     
    
 
-    useEffect(()=>{
+    useEffect((history)=>{
        
         if(!userInfo){
             history.push('/login')
@@ -84,7 +84,7 @@ const orderId = match.params.id
                 }
             }
       
-    }, [dispatch, orderId,successPay,successDeliver, order])
+    }, [dispatch, orderId,successPay,successDeliver, order,history])
 
    
  
@@ -93,19 +93,22 @@ const orderId = match.params.id
         
         dispatch(payOrder(orderId,paymentResult))
         dispatch({type: ORDER_PAY_RESET})
-        
+        window.location.reload()
         
     }
 
     const deliverHandler = () => {
         dispatch(deliverOrder(order))
+        dispatch({ type : ORDER_DELIVER_RESET})
+        window.location.reload()
         dispatch(getOrderDetails(orderId))
     }
 
+  
     return loading ? (
     <Loader /> 
     ): error ? <Message v ariant ='danger' >{error}</Message> : <> 
-  
+    <>{ }</>
       <h1>Order {order._id}</h1>
       <Row>
                 <Col md={8}>
@@ -224,8 +227,8 @@ const orderId = match.params.id
 
                                                         {loadingDeliver && <Loader/>}
                                                         
-                                                                        {!userInfo&&<Loader/>}
-                                                            {  userInfo&&userInfo.isAdmin==="true" && order.isPaid && !order.isDelivered && (
+                                                            {!userInfo&&<Loader/>}
+                                                            {  userInfo && userInfo.isAdmin==="true" && order.isPaid && !order.isDelivered && (
                                                                 <ListGroup.Item>
                                                                     <Button
                                                                       type ='button'
