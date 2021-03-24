@@ -35,18 +35,18 @@ const PaymentScreen = ({history}) => {
                <Form.Group>
                 <Form.Label as ='legend'>Select Method</Form.Label>
                
-               <Col>
+               {/* <Col>
                     <Form.Check type='radio' label='razorpay or credit card' id='razorpay' name='paymentMethod' 
                     value='razorpay' checked onChange={(e)=>setPaymentMethod(e.target.value)}></Form.Check>
-               </Col> 
+               </Col>  */}
                <Col>
                     <Form.Check type='radio' label='PayPal or credit card' id='cashOnDelivery' name='paymentMethod' 
                     value='PayPal' onChange={(e)=>setPaymentMethod(e.target.value)}></Form.Check>
                </Col> 
-               <Col>
+               {/* <Col>
                     <Form.Check type='radio' label='cash on delivery' id='cashOnDelivery' name='paymentMethod' 
                     value='cashOnDelivery' onChange={(e)=>setPaymentMethod(e.target.value)}></Form.Check>
-               </Col> 
+               </Col>  */}
                </Form.Group>
                 <Button type='submit' variant='primary'>
                     Continue
