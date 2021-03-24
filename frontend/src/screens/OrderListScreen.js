@@ -61,7 +61,7 @@ const OrderListScreen = ( {history} ) => {
                               </td>
 
                               <td>
-                                  ${order.totalPrice}
+                                  Rs{order.totalPrice}
                               </td>
                           
                               <td>
