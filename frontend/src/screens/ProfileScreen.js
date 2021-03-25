@@ -7,6 +7,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails,updateUserProfile } from '../actions/userActions'
 import {listMyOrders} from '../actions/orderActions'
+import{ getOrderDetails} from '../actions/orderActions'
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -53,7 +54,9 @@ const ProfileScreen = ({ location, history }) => {
       dispatch(updateUserProfile({ id: user._id, name,email,password}))
     }
   }
-
+  const ButtonHandler=(id)=>{
+    dispatch(getOrderDetails(id))
+  }
   return <Row>
       <Col md={3}>
       <h2>User Profile</h2>
@@ -135,7 +138,7 @@ const ProfileScreen = ({ location, history }) => {
                     )}</td>
                     <td>
                       <LinkContainer to={`/order/${order._id}`}>
-                        <Button variant='light' className='btn-sm'>Details</Button>
+                        <Button variant='light' className='btn-sm' onClick={()=>this.ButtonHandler(order._id)}>Details</Button>
                       </LinkContainer>
                     </td>
                   </tr>
